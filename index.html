@@ -1,17 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
     <head>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">  <!-- framework css dari Bootstrap -->
         <link rel="stylesheet" href="css/style.css">
+		<script src="lib/angular.min.js"></script>  <!-- framework javascript dari AngularJS -->
+		<script src="lib/ui-bootstrap-custom-tpls-0.10.0.min.js"></script>  <!-- library dari ui-bootstrap yang menggabungkan AngularJS dan Bootstraps -->
     </head>
     <body>
     </body>
-    <header>
+    <header class="header">
         <h1 class="text-tengah">DATA MORBILITAS PASIEN RAWAT INAP RUMAH SAKIT</h1>
         <h2 class="text-tengah">TAHUN :  2014</h2>
-        <h3 class="text-kiri">GOLONGAN SEBAB-SEBAB PENYAKIT   :  INFLUENZA</h3>
+        <h3 class="float-left">GOLONGAN SEBAB-SEBAB PENYAKIT   :  INFLUENZA</h3>
+        <!-------------------------------------------------------- S:Div Modal Tambah Data -------------------------------------------------------->
+		<div ng-controller="ModalAddCtrl">
+			<!-------------------------------------------------------- S:Div Modal -------------------------------------------------------->
+			<script type="text/ng-template" id="myModalAddData.html">
+				<div class="modal-header">
+					<h1 class="text-tengah">Form Tambah Data Morbilitas</h1>  <!-- Judul Header Form Modal -->
+				</div>
+				<div class="modal-body">  <!-- S: Modal Body -->
+					<ul>
+						<li ng-repeat="item in items">
+							<a ng-click="selected.item = item">{{ item }}</a>
+						</li>
+					</ul> <!-- E: Modal Body -->
+					Selected: <b>{{ selected.item }}</b>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" ng-click="ok()">OK</button>  <!-- Button OK untuk form modal dengan fungsi ok() dari controller -->
+					<button class="btn btn-warning" ng-click="cancel()">Cancel</button>  <!-- Button Cancel untuk form modal dengan fungsi cancel() dari controller -->
+				</div>
+			</script>
+			<!-------------------------------------------------------- E:Div Modal -------------------------------------------------------->
+			<button class="btn btn-default float-right" ng-click="open()">Tambah Data</button>  <!-- Button Tambah Data dengan fungsi open() dari controller -->
+			<div ng-show="selected">Selection from a modal: {{ selected }}</div>
+		</div>
+        <!-------------------------------------------------------- E:Div Modal Tambah Data -------------------------------------------------------->
     </header>
-    <article>
+    <article class="article">
         <!-------------------------------------------------------- S:Div Class Table Responsive -------------------------------------------------------->
         <div class="table-responsive">
             <!-- 
@@ -24,25 +51,25 @@
         <!-------------------------------------------------------- S:thead -------------------------------------------------------->
                 <thead>
                     <tr>
-                        <th rowspan="2" class="col-1">NO.</th>
-                        <th rowspan="2" class="col-4">NAMA RUMAH SAKIT</th>
-                        <th rowspan="2" class="col-3">NO DAFTAR TERPERINCI</th>
+                        <th rowspan="2" class="grid-1">NO.</th>
+                        <th rowspan="2" class="grid-4">NAMA RUMAH SAKIT</th>
+                        <th rowspan="2" class="grid-3">NO DAFTAR TERPERINCI</th>
                         <th colspan="8">PASIEN KELUAR (HIDUP & MATI) MENURUT GOLONGAN UMUR</th>
                         <th colspan="2">PASIEN (HIDUP & MATI) MENURUT JENIS KELAMIN</th>
-                        <th rowspan="2" class="col-2">JLH KASUS BARU (13-14)</th>
-                        <th rowspan="2" class="col-2">JLH KUNJUNGAN</th>
+                        <th rowspan="2" class="grid-2">JLH KASUS BARU (13-14)</th>
+                        <th rowspan="2" class="grid-2">JLH KUNJUNGAN</th>
                     </tr>
                     <tr>
-                        <th class="col-2">0 < 28 Hari</th>
-                        <th class="col-2">28 Hr - < 1 Thn</th>
-                        <th class="col-2">1 - 4 Thn</th>
-                        <th class="col-2">5 - 14 Thn</th>
-                        <th class="col-2">15 - 24 Thn</th>
-                        <th class="col-2">25 - 44 Thn</th>
-                        <th class="col-2">45 - 64 Thn</th>
-                        <th class="col-2">65 + Thn</th>
-                        <th class="col-2">LK</th>
-                        <th class="col-2">PR</th>
+                        <th class="grid-2">0 < 28 Hari</th>
+                        <th class="grid-2">28 Hr - < 1 Thn</th>
+                        <th class="grid-2">1 - 4 Thn</th>
+                        <th class="grid-2">5 - 14 Thn</th>
+                        <th class="grid-2">15 - 24 Thn</th>
+                        <th class="grid-2">25 - 44 Thn</th>
+                        <th class="grid-2">45 - 64 Thn</th>
+                        <th class="grid-2">65 + Thn</th>
+                        <th class="grid-2">LK</th>
+                        <th class="grid-2">PR</th>
                     </tr>
                 </thead>
         <!-------------------------------------------------------- E:thead -------------------------------------------------------->
@@ -246,4 +273,56 @@
     </article>
     <footer>
     </footer>
+	<!-- S: Javascript Controller untuk menggunakan lib ui.bootstraps harus di simpan dalam htmlnya -->
+	<script>
+		angular.module('myApp', ['ui.bootstrap']);  <!-- instalasi ui.bootstrap, angular module dan myApp dari ng-app tag html --> 
+		
+		<!-- S: ModalAddCtrl -->
+		var ModalAddCtrl = function ($scope, $modal, $log) {
+			<!-- Array -->
+			$scope.items = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'item11', 'item12'];
+			<!-- S: Membuat fungsi open() -->
+			$scope.open = function () {
+				var modalInstance = $modal.open({
+				  templateUrl: 'myModalAddData.html',
+				  controller: ModalInstanceCtrl,
+				  resolve: {
+					items: function () {
+					  return $scope.items;
+					}
+				  }
+				});
+
+				modalInstance.result.then(function (selectedItem) {
+				  $scope.selected = selectedItem;
+				}, function () {
+				  $log.info('Modal dismissed at: ' + new Date());
+				});
+			};
+			<!-- E: Membuat fungsi open() -->
+		};
+		<!-- E: ModalAddCtrl -->
+
+		// Please note that $modalInstance represents a modal window (instance) dependency.
+		// It is not the same as the $modal service used above.
+
+		var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+
+		  $scope.items = items;
+		  $scope.selected = {
+			item: $scope.items[0]
+		  };
+			
+			<!-- S: Fungsi ok() untuk form modal -->
+			  $scope.ok = function () {
+				$modalInstance.close($scope.selected.item);
+			  };
+
+			<!-- S: Fungsi cancel() untuk form modal -->
+			  $scope.cancel = function () {
+				$modalInstance.dismiss('cancel');
+			  };
+		};
+	</script>
+	<!-- E: Javascript Controller untuk menggunakan lib ui.bootstraps harus di simpan dalam htmlnya -->
 </html>
