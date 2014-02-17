@@ -1,4 +1,6 @@
-angular.module('rpl.controller', []). /* modul controller */
+'use strict';
+
+angular.module('rpl.controllers', []). /* modul controller */
 
 	controller('rplHomeCtrl', [function(){ /* S:controller home.html */
 		
