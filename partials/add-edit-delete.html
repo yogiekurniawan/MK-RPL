@@ -1,0 +1,97 @@
+<article class="article">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Form Input Data Morbilitas</div>
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" name="myForm">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Nama Rumah Sakit</label>
+                <div class="col-sm-3">
+                  <input type="text" name="rumah sakit" class="form-control" id="inputEmail3" placeholder="Nama Rumah Sakit">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">No Daftar Terperinci</label>
+                <div class="col-sm-2">
+                  <input type="text" name="no daftar" class="form-control" id="inputPassword3" placeholder="No Daftar">
+                </div>
+              </div>
+                <div class="panel panel-info">
+                  <div class="panel-heading">Pasien Keluar (Hidup dan Mati) Menurut Golongan Umur</div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="text-tengah">
+                                <th class="col-sm-1">0 < 28 Hari</th>
+                                <th class="col-sm-1">28 Hr - < 1 Thn</th>
+                                <th class="col-sm-1">1 - 4 Thn</th>
+                                <th class="col-sm-1">5 - 14 Thn</th>
+                                <th class="col-sm-1">15 - 24 Thn</th>
+                                <th class="col-sm-1">25 - 44 Thn</th>
+                                <th class="col-sm-1">45 - 64 Thn</th>
+                                <th class="col-sm-1">65 + Thn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="form-group has-{{myForm.28hari.$valid}}">
+                                    <input type="number" name="28hari" class="form-control" min="0" placeholder="0" ng-model="value21" required> 
+                                </td>
+                                <td class="form-group has-{{myForm.1thn.$valid}}">
+                                    <input type="number" name="1thn" class="form-control" min="0" placeholder="0" ng-model="value22" required> 
+                                </td>
+                                <td class="form-group has-{{myForm.4thn.$valid}}">
+                                    <input type="number" name="4thn" class="form-control" min="0" placeholder="0" ng-model="value23" required> 
+                                </td>
+                                <td class="form-group has-{{myForm.14thn.$valid}}">
+                                    <input type="number" name="14thn" class="form-control" min="0" placeholder="0" ng-model="value24" required> 
+                                </td>
+                                <td class="form-group has-{{myForm.24thn.$valid}}">
+                                    <input type="number" name="24thn" class="form-control" min="0" placeholder="0" ng-model="value25" required> 
+                                </td>
+                                <td class="form-group has-{{myForm.44thn.$valid}}">
+                                    <input type="number" name="44thn" class="form-control" min="0" placeholder="0" ng-model="value26" required> 
+                                </td>
+                                <td class="form-group has-{{myForm.64thn.$valid}}">
+                                    <input type="number" name="64thn" class="form-control" min="0" placeholder="0" ng-model="value27" required> 
+                                </td>
+                                <td class="form-group has-{{myForm.65plusThn.$valid}}">
+                                    <input type="number" name="65plusThn" class="form-control" min="0" placeholder="0" ng-model="value28" required> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel panel-info">
+                  <div class="panel-heading">Pasien (Hidup dan Mati) Menurut Jenis Kelamin</div>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label for="inputNumber1" class="col-sm-2 control-label">Laki-laki</label>
+                        <div class="col-sm-2">
+                          <input type="text" class="form-control" id="inputNumber1" placeholder="0">
+                        </div>
+                        <label for="inputNumber1" class="col-sm-2 control-label">Perempuan</label>
+                        <div class="col-sm-2">
+                          <input type="text" class="form-control" id="inputNumber1" placeholder="0">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNumber1" class="col-sm-3 control-label">Jumlah Kasus Baru (13-14)</label>
+                    <div class="col-sm-2">
+                      <input type="text" class="form-control" id="inputNumber1" placeholder="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputNumber1" class="col-sm-3 control-label">Jumlah Kunjungan</label>
+                    <div class="col-sm-2">
+                      <input type="text" class="form-control" id="inputNumber1" placeholder="0">
+                    </div>
+                </div>
+                <div class="form-group float-right">
+                      <button type="submit" class="btn btn-primary margin-right-15px">Submit</button>
+                      <a ng-href="#/" class="btn btn-default margin-right-15px">Cancel</a>
+                </div>            
+            </form>
+        </div>
+    </div>
+</article>
