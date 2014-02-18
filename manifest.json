@@ -1,0 +1,12 @@
+{
+  "name": "AA Data Morbilitas",
+  "version": "1",
+  "app": {
+    "background": {
+      "scripts": ["main.js"]
+    }
+  },
+  "icons": { "128": "icon.png" },
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://uas-rpl-demo.firebaseio.com/ https://uas-rpl-demo.firebaseio-demo.com; object-src 'self'"
+}
+

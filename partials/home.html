@@ -1,5 +1,6 @@
 <article class="article">
-    <a href="#/add" class="btn btn-primary float-right">Tambah Data</a>
+    <a href="#/add" class="btn btn-primary pull-right">Add Data</a>
+    <a href="#/edit" class="btn btn-primary pull-right">Update Data</a>
     <!-- S:Div Class Table Responsive -->
     <div class="table-responsive">
         <!-- 
@@ -8,7 +9,7 @@
         .table-striped - untuk membuat zebra line dengan menggunakan class css dari bootstrap
         -->
     <!-- S:table -->
-        <table class="table table-bordered table-striped ">
+        <table class="table table-bordered table-striped table-hover table-condensed">
     <!-- S:thead -->
             <thead>
                 <tr class="center">
@@ -56,23 +57,23 @@
     <!-- E:tfoot -->
     <!-- S:tbody -->
             <tbody>
-                <tr class="center">
-                    <th>1</th>
-                    <td>IMANUEL</td>
-                    <td>1.A</td>
-                    <td>12</td>
-                    <td>23</td>
-                    <td>34</td>
-                    <td>35</td>
-                    <td>55</td>
-                    <td>32</td>
-                    <td>12</td>
-                    <td>16</td>
-                    <td>55</td>
-                    <td>36</td>
-                    <td>77</td>
-                    <td>345</td>
-                    <td>E</td>
+                <tr class="center" ng-repeat="item in items | orderByPriority">
+                    <th class="">{{ $index + 1 }}</th>
+                    <td>{{item.rumahSakit}}</td>
+                    <td>{{item.noDaftar}}</td>
+                    <td>{{item.28hr}}</td>
+                    <td>{{item.1thn}}</td>
+                    <td>{{item.4thn}}</td>
+                    <td>{{item.14thn}}</td>
+                    <td>{{item.24thn}}</td>
+                    <td>{{item.44thn}}</td>
+                    <td>{{item.64thn}}</td>
+                    <td>{{item.65plusThn}}</td>
+                    <td>{{item.lakilaki}}</td>
+                    <td>{{item.perempuan}}</td>
+                    <td>{{item.jmlKasusBaru}}</td>
+                    <td>{{item.jmlKunjungan}}</td>
+                    <td><a ng-href="#/edit/{{item.$id}}">E</a></td>
                 </tr>
             </tbody>
     <!-- E:tbody -->
@@ -80,6 +81,7 @@
     <!-- E:Table -->
     </div>
     <!-- E:Div Class Table Responsive -->
+    {{items}}
 </article>
 <footer>
 </footer>

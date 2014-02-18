@@ -1889,30 +1889,30 @@ select[multiple].input-lg {
 .has-warning .form-control-feedback {
   color: #8a6d3b;
 }
-.has-false .help-block,
-.has-false .control-label,
-.has-false .radio,
-.has-false .checkbox,
-.has-false .radio-inline,
-.has-false .checkbox-inline {
+.hasError .help-block,
+.hasError .control-label,
+.hasError .radio,
+.hasError .checkbox,
+.hasError .radio-inline,
+.hasError .checkbox-inline {
   color: #a94442;
 }
-.has-false .form-control {
+.hasError .form-control {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.has-false .form-control:focus {
+.hasError .form-control:focus {
   border-color: #843534;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
 }
-.has-false .input-group-addon {
+.hasError .input-group-addon {
   color: #a94442;
   border-color: #a94442;
   background-color: #f2dede;
 }
-.has-false .form-control-feedback {
+.hasError .form-control-feedback {
   color: #a94442;
 }
 .form-control-static {

@@ -1,9 +1,4 @@
-body {
-	margin: 20px;
-	font-size: 12px;
-}
-
-.center, .center th, .center td {
+.center th, .center td {
 	text-align:center;
 }
 
@@ -21,25 +16,4 @@ body {
 
 .grid-4 {
 	width: 14.5%;
-}
-
-.float-left {
-	float:left;
-}
-
-.float-right {
-	float:right;
-}
-
-.margin-right-15px {
-	margin-right: 15px;
-}
-
-.tulisan-gede {
-	font-size:70px;
-	background-color:yellow;
-}
-
-.clear-column {
-	background-color: #fff;
 }
