@@ -57,7 +57,7 @@
     <!-- E:tfoot -->
     <!-- S:tbody -->
             <tbody>
-                <tr class="center" ng-repeat="item in items | orderByPriority">
+                <tr class="center" ng-repeat="item in items | orderByPriority | limitTo:10">
                     <th class="">{{ $index + 1 }}</th>
                     <td>{{item.rumahSakit}}</td>
                     <td>{{item.noDaftar}}</td>
