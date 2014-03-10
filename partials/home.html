@@ -1,6 +1,5 @@
 <article class="article">
     <a href="#/add" class="btn btn-primary pull-right">Add Data</a>
-    <a href="#/edit" class="btn btn-primary pull-right">Update Data</a>
     <!-- S:Div Class Table Responsive -->
     <div class="table-responsive">
         <!-- 
@@ -73,7 +72,7 @@
                     <td>{{item.perempuan}}</td>
                     <td>{{item.jmlKasusBaru}}</td>
                     <td>{{item.jmlKunjungan}}</td>
-                    <td><a ng-href="#/edit/{{item.$id}}">E</a></td>
+                    <td><a href="#/edit/{{item.$id}}">E</a></td>
                 </tr>
             </tbody>
     <!-- E:tbody -->
@@ -81,7 +80,6 @@
     <!-- E:Table -->
     </div>
     <!-- E:Div Class Table Responsive -->
-    {{items}}
 </article>
 <footer>
 </footer>

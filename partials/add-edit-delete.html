@@ -6,13 +6,13 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label">Nama Rumah Sakit</label>
                 <div class="col-sm-3">
-                  <input type="text" name="rumahSakit" ng-model="item.rumahSakit" class="form-control" placeholder="Nama Rumah Sakit">
+                  <input type="text" name="rumahSakit" ng-model="item.rumahSakit" class="form-control" placeholder="Nama Rumah Sakit" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">No Daftar Terperinci</label>
                 <div class="col-sm-2">
-                  <input type="text" name="noDaftar" ng-model="item.noDaftar" class="form-control" placeholder="No Daftar">
+                  <input type="text" name="noDaftar" ng-model="item.noDaftar" class="form-control" placeholder="No Daftar" required>
                 </div>
               </div>
                 <div class="panel panel-info">
@@ -64,32 +64,33 @@
                   <div class="panel-heading">Pasien (Hidup dan Mati) Menurut Jenis Kelamin</div>
                     <div class="panel-body">
                       <div class="form-group">
-                        <label for="inputNumber1" class="col-sm-2 control-label">Laki-laki</label>
+                        <label class="col-sm-2 control-label">Laki-laki</label>
                         <div class="col-sm-2">
-                          <input type="text" name="laki" ng-model="item.lakilaki" class="form-control" id="inputNumber1" placeholder="0">
+                          <input type="number" name="laki" ng-model="item.lakilaki" class="form-control" min="0" placeholder="0" required>
                         </div>
-                        <label for="inputNumber1" class="col-sm-2 control-label">Perempuan</label>
+                        <label class="col-sm-2 control-label">Perempuan</label>
                         <div class="col-sm-2">
-                          <input type="text" name="perempuan" ng-model="item.perempuan" class="form-control" id="inputNumber1" placeholder="0">
+                          <input type="number" name="perempuan" ng-model="item.perempuan" class="form-control" min="0" placeholder="0" required>
                         </div>
                       </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputNumber1" class="col-sm-3 control-label">Jumlah Kasus Baru (13-14)</label>
+                    <label class="col-sm-3 control-label">Jumlah Kasus Baru (13-14)</label>
                     <div class="col-sm-2">
-                      <input type="text" name="jmlKasusBaru" ng-model="item.jmlKasusBaru" class="form-control" id="inputNumber1" placeholder="0">
+                      <input type="number" name="jmlKasusBaru" ng-model="item.jmlKasusBaru" class="form-control" min="0" placeholder="0" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputNumber1" class="col-sm-3 control-label">Jumlah Kunjungan</label>
+                    <label class="col-sm-3 control-label">Jumlah Kunjungan</label>
                     <div class="col-sm-2">
-                      <input type="text" name="jmlKunjungan" ng-model="item.jmlKunjungan" class="form-control" id="inputNumber1" placeholder="0">
+                      <input type="number" name="jmlKunjungan" ng-model="item.jmlKunjungan" class="form-control" min="0" placeholder="0" required>
                     </div>
                 </div>
-                <div class="form-group float-right">
-                      <button ng-click="save()" class="btn btn-primary margin-right-15px">Submit</button>
-                      <a href="#/" class="btn btn-default margin-right-15px">Cancel</a>
+                <div class="form-group pull-right">
+                      <button ng-click="save()" class="btn btn-primary margin-right-25px">Save</button>
+                      <button ng-click="destroy()" class="btn btn-danger margin-right-25px">Delete</button>
+                      <a href="#/" class="btn btn-warning margin-right-25px">Cancel</a>
                 </div>            
             </form>
         </div>

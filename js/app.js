@@ -14,6 +14,16 @@ angular.module('rpl', [
 		return $firebase(new Firebase(fbURL));
 	})
 
+	.config( [
+	    '$compileProvider',
+	    function( $compileProvider )
+	    {   
+	        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+	        // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+	        // http://stackoverflow.com/questions/15606751/angular-changes-urls-to-unsafe-in-extension-page
+	    }
+	])
+
 	.config (function($routeProvider) {
 		$routeProvider
 			.when('/', {
