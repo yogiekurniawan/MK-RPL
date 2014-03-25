@@ -1,5 +1,13 @@
 <article class="article">
-    <a href="#/add" class="btn btn-primary pull-right">Add Data</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-10">
+                <input type="text" class="form-control" ng-model="search.rumahSakit">
+            </div>
+            <div class="col-xs-2"><a href="#/add" class="btn btn-primary pull-right">Add Data</a></div>
+        </div>
+    </div><br/>
+    
     <!-- S:Div Class Table Responsive -->
     <div class="table-responsive">
         <!-- 
@@ -56,7 +64,7 @@
     <!-- E:tfoot -->
     <!-- S:tbody -->
             <tbody>
-                <tr class="center" ng-repeat="item in items | orderByPriority | limitTo:10">
+                <tr class="center" ng-repeat="item in items | orderByPriority | filter:search | limitTo:10">
                     <th class="">{{ $index + 1 }}</th>
                     <td>{{item.rumahSakit}}</td>
                     <td>{{item.noDaftar}}</td>
